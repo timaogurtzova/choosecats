@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Top10</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/main-page.css" th:href="@{/css/main-page.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/rating-page.css" th:href="@{/css/rating-page.css}"/>
+</head>
+<body>
+<div th:object="${topTen}">
+    <table>
+        <thead>
+        <tr>
+            <th>Rating</th>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Count Vote</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="cat : ${topTen}">
+            <td th:text="${topTen.indexOf(cat)+1}"></td>
+            <td>
+                <img class="cat-avatar" th:src="${cat.imagePathURL}">
+            </td>
+            <td th:text="${cat.name}"></td>
+            <td th:text="${cat.voteCounter}"></td>
+        <tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

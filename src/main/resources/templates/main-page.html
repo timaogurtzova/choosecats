@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Choose a cat</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/main-page.css" th:href="@{/css/main-page.css}"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class=cat-block>
+            <div th:object="${catFirst}" id="catFirst" th:attr="data-catfirstid=${catFirst.getId()}">
+                <h2>Участник 1</h2>
+                <div><img id="catFirstImg" class="cat-avatar" th:src="${catFirst.getImagePathURL()}"><br></div>
+                <p><a id="catFirstRef" href="#" th:text="${catFirst.getName()}"></a>
+                </p>
+            </div>
+        </div>
+        <div class="cat-block">
+            <div th:object="${catLast}" id="catLast" th:attr="data-catlastid=${catLast.getId()}">
+                <h2>Участник 2</h2>
+                <div><img id="catLastImg" class="cat-avatar" th:src="${catLast.getImagePathURL()}"><br></div>
+                <p><a id="catLastRef" href="#" th:text="${catLast.getName()}"></a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/main-page.js"></script>
+</body>
+</html>
