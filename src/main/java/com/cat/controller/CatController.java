@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -37,7 +38,7 @@ public class CatController {
     /*
         Когда пользователь голосует за кота, рейтинг кота должен быть изменен.
     */
-    @GetMapping("/voteCat/{winner}/{notwinner}")
+    @PostMapping("/voteCat/{winner}/{notwinner}")
     public ResponseEntity<String> voteForCat(@PathVariable("winner") Long winner, @PathVariable("notwinner") Long notWinner) {
         catService.updateVoteCounter(winner, notWinner);
         return new ResponseEntity<>(HttpStatus.OK);

@@ -18,7 +18,7 @@ function sendRequest(winner, notwinner) {
     console.log(winner + notwinner);
     let xhr = new XMLHttpRequest();
     let url = '/voteCat/' + winner + '/' + notwinner;
-    xhr.open('GET', url, false);
+    xhr.open('POST', url, false);
     xhr.send();
     location.reload();
 }
